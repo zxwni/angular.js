@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test3</title>
+    <script src="../org/angular.min.js"></script>
+</head>
+<style>
+    .ng-cloak{
+        display: none;
+    }
+</style>
+<body>
+<div ng-app="hd" ng-controller="ctrl" class="ng-cloak">
+    <form action="1.php" method="post">
+        <input type="text" name="title" ng-model="name"/>
+        <h2 ng-bind="name"></h2>
+        <input type="submit">
+    </form>
+</div>
+</body>
+<script>
+    var m = angular.module("hd",[]);
+    //双向数据绑定
+    m.controller("ctrl",['$scope', function ($scope) {
+        //viewModel
+        $scope.name = '1110';
+    }])
+</script>
+</html>

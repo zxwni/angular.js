@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test2</title>
+    <script src="../org/angular.min.js"></script>
+</head>
+<body ng-app="hd">
+<div  ng-controller="ctrl">
+    <!--单选-->
+    <div>
+        <input type="radio" ng-model="status" ng-value="1"> 开启
+        <input type="radio" ng-model="status" ng-value="0"> 关闭
+        <div ng-show="status==0">
+            商品名称：<input type="text" ng-model="goods.title"><br/>
+            价格：<input type="text" ng-model="goods.price" readonly><br/>
+            数量：<input type="text" ng-model="goods.num"><br/>
+            总价：<input type="text" ng-value="goods.price*goods.num" readonly><br/>
+        </div>
+    </div>
+    <!--多选-->
+    <div>
+        游戏：<input type="checkbox" ng-model="data.game" ng-true-value="1" ng-false-value="0"/>
+        电影：<input type="checkbox" ng-model="data.movie" ng-true-value="1" ng-false-value="0"/>
+        <div ng-show="data.game==1">
+            <h1>游戏：</h1>
+            <textarea ></textarea>
+        </div>
+        <div ng-show="data.movie==1">
+            <h1>电影：</h1>
+            <textarea ></textarea>
+        </div>
+    </div>
+    <!--下拉-->
+    <div>
+        <select ng-options="v.value as v.name for v in seledata" ng-model="city">
+            <option value="">请选择城市</option>
+        </select>
+    </div>
+</div>
+</body>
+<script>
+    var m = angular.module("hd",[]);
+    m.controller("ctrl",['$scope', function ($scope) {
+        $scope.goods = {
+           'title':'iphone4','price':'5000','num':0
+        };
+        $scope.status=1;
+        $scope.data={game:0,movie:0};
+        $scope.seledata=[
+            {name:'北京',value:"beijing"},
+            {name:'南京',value:"nanjing"}
+        ];
+        //函数
+        var obj = {'name':1};
+        var obj2 = { };
+        angular.copy(obj,obj2); //深拷贝
+        obj2.name=2342;
+        angular.extend(obj,{url:223423,num:23423432}); //扩充
+//      console.log(obj);
+        //遍历
+        angular.forEach($scope.seledata, function (v, k) {
+            v.name = 'a'+ v.name;
+//            console.log(k);
+        });
+        //json => 字符串 转换
+        var a = angular.toJson($scope.seledata);
+        var b = angular.fromJson(a);
+    }])
+</script>
+</html>
