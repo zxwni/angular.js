@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test5</title>
+    <script src="../org/angular.min.js"></script>
+</head>
+<body ng-app="hd">
+<div  ng-controller="ctrl">
+    <ul>
+        <li ng-repeat="(k,v) in data" >
+            名称：{{v.title}},   价格：{{v.price}}
+        </li>
+    </ul>
+</div>
+</body>
+<script>
+    var m = angular.module("hd",[]);
+    m.controller("ctrl",['$scope', function ($scope) {
+        $scope.data = [
+                {'title':'iphone4','price':'1000','num':0},
+                {'title':'iphone5','price':'2000','num':0},
+                {'title':'iphone6','price':'3000','num':0},
+                {'title':'iphone7','price':'4000','num':0}
+        ];
+    }])
+</script>
+</html>
