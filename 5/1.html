@@ -12,6 +12,12 @@
             名称：{{v.title}},   价格：{{v.price}}
         </li>
     </ul>
+    <hr/>
+    <ul>
+        <li ng-repeat="v in arr track by $index">
+            {{v}}
+        </li>
+    </ul>
 </div>
 </body>
 <script>
@@ -23,6 +29,7 @@
                 {'title':'iphone6','price':'3000','num':0},
                 {'title':'iphone7','price':'4000','num':0}
         ];
+        $scope.arr = ['aa','bb','aa'];
     }])
 </script>
 </html>

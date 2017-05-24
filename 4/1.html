@@ -18,6 +18,7 @@
             总价：<input type="text" ng-value="goods.price*goods.num" readonly><br/>
         </div>
     </div>
+    <hr/>
     <!--多选-->
     <div>
         游戏：<input type="checkbox" ng-model="data.game" ng-true-value="1" ng-false-value="0"/>
@@ -31,11 +32,41 @@
             <textarea ></textarea>
         </div>
     </div>
+    <hr/>
     <!--下拉-->
     <div>
         <select ng-options="v.value as v.name for v in seledata" ng-model="city">
             <option value="">请选择城市</option>
         </select>
+    </div>
+    <hr/>
+    <!--全选、反选-->
+    <div>
+        <table border="1" width="500">
+            <tr>
+                <td>
+                    <input type="checkbox" ng-model="all">
+                    <span ng-bind="!all?'全选':'取消'"></span>
+                </td>
+               <td>
+                   地址
+               </td>
+                <td>
+                    en
+                </td>
+            </tr>
+            <tr ng-repeat="v in seledata">
+                <td><input type="checkbox" ng-checked="all"/></td>
+                <td>{{v.name}}</td>
+                <td>{{v.value}}</td>
+            </tr>
+        </table>
+    </div>
+    <hr/>
+    <!--延迟更新-->
+    <div>
+        <input type="text" ng-model="title" ng-model-options="{updateOn:'default blur',debounce:{default:2000,blur:0}}"/>
+        {{title}}
     </div>
 </div>
 </body>
