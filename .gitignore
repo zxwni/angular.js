@@ -2871,3 +2871,13 @@ org/yuanli.png
 .idea/modules.xml
 .idea/vcs.xml
 .idea/workspace.xml
+org/bootstrap.min.css
+org/bootstrap/css/bootstrap-responsive.css
+org/bootstrap/css/bootstrap-responsive.min.css
+org/bootstrap/css/bootstrap.css
+org/bootstrap/css/bootstrap.min.css
+org/bootstrap/img/glyphicons-halflings-white.png
+org/bootstrap/img/glyphicons-halflings.png
+org/bootstrap/js/bootstrap.js
+org/bootstrap/js/bootstrap.min.js
+.idea/blade.xml
